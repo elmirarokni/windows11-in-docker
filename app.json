@@ -1,0 +1,6 @@
+{
+    "name": "windows11 in docker",
+    "description": "Windows 11 in Docker, using QEMU!",
+    "repository": "https://github.com/elmirarokni/windows11-in-docker",
+    "stack": "container"
+  }

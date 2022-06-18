@@ -1,24 +1,26 @@
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![استقرار](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-# Windows 11 in Docker using QEMU  
+[![وضعیت پروژه: WIP – توسعه اولیه در حال انجام است، اما هنوز نسخه پایدار و قابل استفاده مناسبی برای عموم وجود ندارد.](https://www.repostatus.org/badges/latest/wip.svg) ](https://www.repostatus.org/#wip)
 
-## What's happening inside the container
+# ویندوز 11 در داکر با استفاده از QEMU
 
-## TODO
+## داخل ظرف چه خبر است
 
-- [ ] Might try using Makefile and m4
-- [x] Get ubuntu image
-- [x] Install necessary dependencies
-- [x] Download Windows 11 Evaluation ISO from Microsoft
-- [ ] Enable KVM support for better perfomance
-- [x] Emulate TPM 2.0 (separate container)
-- [ ] Install Windows 11 ISO (make it persistent)
-- [ ] Write a script to start up the VM every time the container starts
-  - [ ] Sata Disk 1 bus must be `VirtIO` type, storage format: `qcow2`
-  - [x] NIC's device model: `VirtIO`
-  - [x] Add a CDROM storage device with Windows 11 ISO
-  - [ ] Add a CDROM storage device with VirtIO Windows Drivers
-  - [ ] Minimum CPU allocation: 4. Socket: 1; Cores: 2; Threads: 2
-  - [ ] Enable UEFI boot. Requirements: Chipset: i440FX; Firmware: UEFI x86_64:/usr/share/OVMF/OVMF_CODE.fd
-- [ ] **Replace CMD in Dockerfile with a proper start.sh file.**
-- [ ] **Cleanup Dockerfile**
+## انجام دادن
+
+- [ ] ممکن است از Makefile و m4 استفاده کنید
+- [x] تصویر اوبونتو را دریافت کنید
+- [x] وابستگی های لازم را نصب کنید
+- [x] Windows 11 Evaluation ISO را از مایکروسافت دانلود کنید
+- [ ] پشتیبانی KVM را برای عملکرد بهتر فعال کنید
+- [x] شبیه سازی TPM 2.0 (ظرف جداگانه)
+- [ ] ISO ویندوز 11 را نصب کنید (آن را پایدار کنید)
+- [ ] یک اسکریپت برای راه اندازی VM هر بار که ظرف شروع می شود بنویسید
+  - [ ] گذرگاه Sata Disk 1 باید از نوع «VirtIO» باشد، فرمت ذخیره سازی: «qcow2»
+  - [x] مدل دستگاه NIC: `VirtIO`
+  - [x] یک دستگاه ذخیره سازی CDROM با ISO Windows 11 اضافه کنید
+  - [ ] یک دستگاه ذخیره سازی CDROM با درایور ویندوز VirtIO اضافه کنید
+  - [ ] حداقل تخصیص CPU: 4. سوکت: 1; هسته ها: 2; موضوعات: 2
+  - [ ] بوت UEFI را فعال کنید. مورد نیاز: چیپست: i440FX. سیستم عامل: UEFI x86_64:/usr/share/OVMF/OVMF_CODE.fd
+- [ ] **CMD را در Dockerfile با یک فایل start.sh مناسب جایگزین کنید.**
+- [ ] **پاکسازی Dockerfile**

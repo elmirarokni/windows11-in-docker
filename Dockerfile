@@ -92,22 +92,22 @@ RUN apt install -y qemu-system-gui x11-apps
 # Enable Secure Boot
 RUN apt install ovmf
 
-RUN touch start.sh \
-    && chmod +x ./start.sh \
-    && tee -a start.sh <<< '#!/bin/sh' \
-    && tee -a start.sh <<< 'ls /tmp/emulated_tpm' \
-    && tee -a start.sh <<< 'exec qemu-system-x86_64 \' \ 
-    && tee -a start.sh <<< '-hda /home/windows11-iso/windows11.img \' \
-    && tee -a start.sh <<< '-device -drive file=/home/windows11-iso/windows11.img,if=virtio \' \
-    && tee -a start.sh <<< '-boot d -cdrom /home/windows11-iso/windows11.iso \' \
-    && tee -a start.sh <<< '-boot g -cdrom /home/windows11-iso/virtio-win.iso' \
-    && tee -a start.sh <<< '-chardev socket,id=chrtpm,path=/tmp/emulated_tpm/swtpm-sock \' \
-    && tee -a start.sh <<< '-tpmdev emulator,id=tpm0,chardev=chrtpm \' \
-    && tee -a start.sh <<< '-device tpm-tis,tpmdev=tpm0 \' \
-    && tee -a start.sh <<< '-net nic,model=virtio \' \
-    && tee -a start.sh <<< '-cpu host -smp 4,cores=2 -m 8192 \' \
+RUN touch buildpack-run.sh \
+    && chmod +x ./buildpack-run.sh \
+    && tee -a buildpack-run.sh <<< '#!/bin/sh' \
+    && tee -a buildpack-run.sh <<< 'ls /tmp/emulated_tpm' \
+    && tee -a buildpack-run.sh <<< 'exec qemu-system-x86_64 \' \ 
+    && tee -a buildpack-run.sh <<< '-hda /home/windows11-iso/windows11.img \' \
+    && tee -a buildpack-run.sh <<< '-device -drive file=/home/windows11-iso/windows11.img,if=virtio \' \
+    && tee -a buildpack-run.sh <<< '-boot d -cdrom /home/windows11-iso/windows11.iso \' \
+    && tee -a buildpack-run.sh <<< '-boot g -cdrom /home/windows11-iso/virtio-win.iso' \
+    && tee -a buildpack-run.sh <<< '-chardev socket,id=chrtpm,path=/tmp/emulated_tpm/swtpm-sock \' \
+    && tee -a buildpack-run.sh <<< '-tpmdev emulator,id=tpm0,chardev=chrtpm \' \
+    && tee -a buildpack-run.sh <<< '-device tpm-tis,tpmdev=tpm0 \' \
+    && tee -a buildpack-run.sh <<< '-net nic,model=virtio \' \
+    && tee -a buildpack-run.sh <<< '-cpu host -smp 4,cores=2 -m 8192 \' \
 
-CMD ./start.sh
+# CMD ./start.sh
 
 # Create vTPM emulated device
 # RUN swtpm socket --tpmstate dir=/tmp/emulated_tpm --ctrl type=unixio,path=/tmp/emulated_tpm/swtpm-sock --log level=20 --tpm2 && qemu-system-x86_64 -hda /home/windows11-iso/windows11.img -boot d -m 4096 \

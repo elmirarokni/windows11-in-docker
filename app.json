@@ -3,4 +3,9 @@
     "description": "Windows 11 in Docker, using QEMU!",
     "repository": "https://github.com/elmirarokni/windows11-in-docker",
     "stack": "container"
+    "buildpacks": [
+        {   
+            "url": "https://github.com/weibeld/heroku-buildpack-run.git"  
+        }
+      ]
   }

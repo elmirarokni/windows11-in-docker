@@ -40,7 +40,7 @@ RUN wget https://dl.bestforpc.com/Downloads/OS/Windows-10-Lite-Edition/Win_10_Pr
 RUN wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
 
 # Rename ISO file and virtio ISO file
-RUN find . -type f -name 'Win11*.iso' -exec sh -c 'x="{}"; mv "$x" "windows11.iso"' \;
+RUN find . -type f -name 'Windows-10*.iso' -exec sh -c 'x="{}"; mv "$x" "windows11.iso"' \;
 RUN find . -type f -name 'virtio-win*.iso' -exec sh -c 'x="{}"; mv "$x" "virtio-win.iso"' \;
 
 # Prepare system .img file and ISO for VM
